@@ -90,6 +90,19 @@ class SwingRider {
     };
   }
 
+  sellOrder(posQty: bigint): Order {
+    // Sell the whole position: the exit rules (take-profit, disaster
+    // stop, timeout) are all-or-nothing, never partial.
+    this.orderNo += 1;
+    return {
+      side: "sell",
+      client_id: "s" + this.orderNo,
+      symbol: this.symbol,
+      qty: posQty.toString(),
+      max_slippage_bps: MAX_SLIP,
+    };
+  }
+
   onBar(close: number, cash: bigint, posQty: bigint, posCost: bigint): Order[] {
     this.closes.push(close);
     if (this.refEquity === null) this.refEquity = cash;
@@ -119,14 +132,7 @@ class SwingRider {
       this.barsHeld += 1;
       const gain = this.gainBps(close);
       if (gain >= TAKE_PROFIT_BPS || gain <= -STOP_LOSS_BPS || this.barsHeld >= TIMEOUT_BARS) {
-        this.orderNo += 1;
-        orders.push({
-          side: "sell",
-          client_id: "s" + this.orderNo,
-          symbol: this.symbol,
-          qty: posQty.toString(),
-          max_slippage_bps: MAX_SLIP,
-        });
+        orders.push(this.sellOrder(posQty));
       } else if (this.tranchesDone < TRANCHE_DD_BPS.length) {
         // Deepen the position if the sell-off extends to the next tranche.
         if (dd <= -TRANCHE_DD_BPS[this.tranchesDone] && cash >= MIN_NOTIONAL) {

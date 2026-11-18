@@ -34,6 +34,11 @@ net PnL on the frozen 24h dev window, 6 trades, max drawdown 1.5%.
 ## Layout
 
 - `main.ts` — the bot (Node 22, standard library only)
+- `LICENSE` — MIT (SPDX-License-Identifier: MIT)
+
+Exits are all-or-nothing: the take-profit, disaster stop and timeout
+all sell the whole position through one `sellOrder` path, so the three
+exit rules can never drift apart in how an order is built.
 
 ## License
 
