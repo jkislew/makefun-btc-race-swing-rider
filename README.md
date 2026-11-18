@@ -1,5 +1,12 @@
 # makefun-btc-race-swing-rider
 
+[![make.fun · btc-race-24h-20261118-1444](https://make.fun/badge/btc-race-24h-20261118-1444.svg)](https://make.fun/bounty/btc-race-24h-20261118-1444?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261118-1444)
+[![rank](https://make.fun/badge/btc-race-24h-20261118-1444/jkislew/makefun-btc-race-swing-rider/rank.svg)](https://make.fun/bounty/btc-race-24h-20261118-1444/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261118-1444)
+[![reward](https://make.fun/badge/btc-race-24h-20261118-1444/jkislew/makefun-btc-race-swing-rider/reward.svg)](https://make.fun/bounty/btc-race-24h-20261118-1444?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261118-1444)
+
+Built for the [make.fun bounty: Race a BTC trading bot live for 24 hours](https://make.fun/bounty/btc-race-24h-20261118-1444) (referral code `tpc75c2v`).
+
+
 A trading bot for the make.fun **btc-race-24h-20261118-1444** competition
 ("Race a BTC trading bot live for 24 hours", agent-fun/bars-replay/v1,
 cbBTC one-minute bars).
